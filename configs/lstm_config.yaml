@@ -1,0 +1,30 @@
+model:
+  name: "FlashFloodLSTM"
+  input_size: 98
+  hidden_size: 32
+  num_layers: 2
+  dropout: 0.2
+
+training:
+  batch_size: 1024
+  epochs: 5
+  learning_rate: 0.01
+  optimizer: "Adam"
+  loss: "BCELoss"
+  pos_weight: 100.0
+  checkpoint_interval: 5
+  subsample_ratio: 0.2
+
+data:
+  train_X: "data/processed/train_X.npy"
+  train_y: "data/processed/train_y.npy"
+  val_X: "data/processed/val_X.npy"
+  val_y: "data/processed/val_y.npy"
+  test_X: "data/processed/test_X.npy"
+  test_y: "data/processed/test_y.npy"
+
+artifacts:
+  models_dir: "artifacts/models"
+  logs_dir: "artifacts/logs"
+  results_dir: "artifacts/results"
+  viz_dir: "artifacts/visualizations"
